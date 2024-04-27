@@ -1,0 +1,24 @@
+spring:
+  application:
+    name: portfolio
+  datasource:
+    url: jdbc:mysql://${DB_ADDR}:${DB_PORT}/${DB_DATABASE}
+    username: ${DB_USER}
+    password: ${DB_PASSWORD}
+    testWhileIdle: true
+    validationQuery: 'SELECT 1'
+    hikari:
+      minimum-idle: ${DB_POOL_SIZE_MIN:50}
+      maximum-pool-size: ${DB_POOL_SIZE_MAX:100}
+      connectionTimeout: 30000
+    jpa:
+      show-sql: true
+      hibernate:
+        ddl-auto: none
+        naming-strategy: org.hibernate.cfg.ImprovedNamingStrategy
+      properties:
+        hibernate:
+          dialect: org.hibernate.dialect.PostgreSQLDialect
+          jdbc:
+            lob:
+              non_contextual_creation: true

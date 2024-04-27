@@ -1,0 +1,25 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+                   xmlns:pro="http://www.liquibase.org/xml/ns/pro" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-latest.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+    <changeSet id="Portfolio_1" author="hoangthehung@gmail.com" labels="portfolio">
+        <comment>init for Portfolio</comment>
+        <sql>
+            CREATE TABLE squad2_portfolio
+            (
+                portfolio_id        INT auto_increment NOT NULL,
+                customer_id         INT NULL,
+                customer_name       varchar(250) NULL,
+                portfolio_number    varchar(100) NULL,
+                portfolio_value     NUMERIC NULL,
+                current_performance DOUBLE NULL,
+                investment_strategy varchar(8) NULL,
+                CONSTRAINT squad2_portfolio_PK PRIMARY KEY (portfolio_id)
+            )
+        </sql>
+        <rollback>
+            DROP TABLE squad2_portfolio;
+        </rollback>
+    </changeSet>
+</databaseChangeLog>
